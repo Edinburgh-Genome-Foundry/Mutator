@@ -5,7 +5,7 @@
 # DNA Mutator
 
 ![version](https://img.shields.io/badge/current_version-0.1.0-blue)
-[![build](https://github.com/Edinburgh-Genome-Foundry/dna_mutator/actions/workflows/build.yml/badge.svg)](https://github.com/Edinburgh-Genome-Foundry/dna_mutator/actions/workflows/build.yml)
+[![build](https://github.com/Edinburgh-Genome-Foundry/Mutator/actions/workflows/build.yml/badge.svg)](https://github.com/Edinburgh-Genome-Foundry/Mutator/actions/workflows/build.yml)
 
 Create variants of DNA sequences.
 
