@@ -13,13 +13,14 @@ class Mutator:
     """Class to generate simulations of structural and single nucleotide variants.
 
 
-    **Parameters**
+    Parameters
+    ----------
 
-    **reference**
-    > A `SeqRecord` instance.
+    reference
+      A `SeqRecord` instance.
 
-    **library_size**
-    > Library size (`int`).
+    library_size
+      Library size (`int`).
     """
 
     def __init__(self, reference, library_size=10):
@@ -28,7 +29,7 @@ class Mutator:
         self.variant_records = []
 
     def write_sample_sheet(self, csv_file):
-        """Create a sample sheet (for use with Sequeduct)"""
+        """Create a sample sheet (for use with Sequeduct)."""
         barcode_dir = [
             "barcode" + ("{0:02d}".format(i + 1))
             for i in range(len(self.variant_records))
@@ -40,19 +41,20 @@ class Mutator:
 
     @staticmethod
     def subtract_bases(seq, pos, n):
-        """Substract N bases from a sequence
+        """Substract N bases from a sequence.
 
 
-        **Parameters**
+        Parameters
+        ----------
 
-        **seq**
-        > `Seq` instance.
+        seq
+          `Seq` instance.
 
-        **pos**
-        > Location of change (`int`).
+        pos
+          Location of change (`int`).
 
-        **n**
-        > Number of bases to subtract (`int`).
+        n
+          Number of bases to subtract (`int`).
         """
         modified_sequence = MutableSeq(seq)
         deleted_sequence = modified_sequence[pos : pos + n]
@@ -66,22 +68,24 @@ class Mutator:
 
     @staticmethod
     def get_random_pos(record, n=1):
-        """Get n different random positions in a record"""
+        """Get n different random positions in a record."""
         positions = random.sample(range(0, len(record)), n)
 
         return positions
 
     @staticmethod
     def read_genbank(genbank, use_file_name_as_id=True):
-        """Get the reference sequence and features from input file
+        """Get the reference sequence and features from input file.
 
-        **Parameters**
 
-        **genbank**
-        > Path to Genbank file (`str`).
+        Parameters
+        ----------
 
-        **use_file_name_as_id**
-        > Replace record id and name with the filename (`bool`).
+        genbank
+          Path to Genbank file (`str`).
+
+        use_file_name_as_id
+          Replace record id and name with the filename (`bool`).
         """
         record = SeqIO.read(genbank, "genbank")
         if use_file_name_as_id:
@@ -92,7 +96,7 @@ class Mutator:
 
     @staticmethod
     def write_genbank(record, file_name):
-        """Write SeqRecord to a Genbank file"""
+        """Write SeqRecord to a Genbank file."""
         SeqIO.write(record, file_name, "gb")
 
     def write_all_records(self, dir_name):
@@ -108,7 +112,7 @@ class Mutator:
             self.write_genbank(variant, variant_path + extension)
 
     def DelN(self, bases=1):
-        """Simulate N base deletion"""
+        """Simulate N base deletion."""
         positions = self.get_random_pos(self.reference, n=self.library_size)
         for i in range(self.library_size):
             position = positions[i]
