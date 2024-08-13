@@ -7,6 +7,8 @@
 ![version](https://img.shields.io/badge/current_version-0.1.0-blue)
 [![build](https://github.com/Edinburgh-Genome-Foundry/Mutator/actions/workflows/build.yml/badge.svg)](https://github.com/Edinburgh-Genome-Foundry/Mutator/actions/workflows/build.yml)
 
+**Work in progress!**
+
 Create variants of DNA sequences.
 
 This repository is based on the software code of a dissertation project (B237870) for the MSc Bioinformatics program at the University of Edinburgh.
